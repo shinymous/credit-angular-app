@@ -1,0 +1,49 @@
+<div class="row col-md-12 table">
+    <div *ngIf="proposals.length > 0" >
+
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Estado Civil</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Dependentes</th>
+                <th scope="col">Renda R$</th>
+                <th scope="col">Resultado Análise</th>
+                <th scope="col">Limite</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let proposal of proposals">
+                <td>{{ proposal.name }}</td>
+                <td>{{ proposal.age }}</td>
+                <td>{{ proposal.gender }}</td>
+                <td>{{ proposal.maritalStatus }}</td>
+                <td>{{ proposal.uf }}</td>
+                <td>{{ proposal.dependents }}</td>
+                <td>{{ proposal.income }}</td>
+                <td>{{ proposal.approved  ? "APROVADO" : "REPROVADO" }}</td>
+                <td>{{ proposal.limit }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="row col-md-12 buttons">
+              <div>
+                Página {{ actualPage }} 
+              </div>
+              <div>
+                de {{ pages }}
+              </div>
+            </div>
+        </div>
+        <div class="row col-md-12 buttons">
+          <div>
+            <button (click)="previousPage()" class="btn btn-primary btn-md text-center next-button">Anterior</button>
+          </div>
+          <div>
+            <button (click)="nextPage()" class="btn btn-primary btn-md text-center previous-button">Próxima</button>
+          </div>
+        </div>
+ </div>

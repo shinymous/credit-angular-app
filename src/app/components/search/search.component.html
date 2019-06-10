@@ -1,0 +1,59 @@
+<div>
+  <div class="row cpf-input">
+    <div class="col-md-6">
+      <input (keyup)="cpfHandler($event)" class="form-control form-control-sm" type="text" placeholder="CPF">
+    </div>
+  </div>
+
+ <div class="row col-md-12 submit-button">
+    <div>
+        <button (click)="submit()" class="btn btn-primary btn-md text-center">Pesquisar</button>
+    </div>
+ </div> 
+  
+ <div class="row col-md-12 table">
+    <div *ngIf="proposal.age > 0" >
+
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Estado Civil</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Dependentes</th>
+                <th scope="col">Renda R$</th>
+                <th scope="col">Resultado Análise</th>
+                <th scope="col">Limite</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ proposal.name }}</td>
+                <td>{{ proposal.age }}</td>
+                <td>{{ proposal.gender }}</td>
+                <td>{{ proposal.maritalStatus }}</td>
+                <td>{{ proposal.uf }}</td>
+                <td>{{ proposal.dependents }}</td>
+                <td>{{ proposal.income }}</td>
+                <td>{{ proposal.approved  ? "APROVADO" : "REPROVADO" }}</td>
+                <td>{{ proposal.limit }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+ </div>
+
+
+<div *ngIf="validation.length > 0">
+  <div class="row col-md-12 text-danger validation">
+      {{ validation }}
+  </div>
+</div>
+
+
+<div *ngIf="responseError.length > 0" >
+  <div class="row col-md-12 text-danger validation"> {{ responseError }} </div>
+</div>
+</div>

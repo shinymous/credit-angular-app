@@ -1,0 +1,13 @@
+.table{
+    justify-content: center;
+    padding-top: 70px;
+}
+.buttons{
+    justify-content: center;
+}
+.next-button{
+    margin-right: 10px;
+}
+.previous-button{
+    margin-left: 10px;
+}

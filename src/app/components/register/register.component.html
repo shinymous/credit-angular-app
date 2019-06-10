@@ -1,0 +1,61 @@
+<div class="content">
+
+    <div class="row col-md-12 form">
+      <div class="col-md-6 title">
+        Preencha o formulário
+      </div>
+    </div>
+
+    <div class="row col-md-12 form">
+      <form class="col-md-6">
+        <div class="form-group">
+          <label>Nome</label>
+          <input (keyup)="nameHandler($event)" type="text" class="form-control" placeholder="Nome">
+        </div>
+        <div class="form-group">
+          <label>Cpf</label>
+          <input (keyup)="cpfHandler($event)" type="text" class="form-control" placeholder="Cpf">
+        </div>
+        <div class="form-group">
+          <label>Idade</label>
+          <input (input)="ageHandler($event)" type="number" class="form-control" placeholder="Idade">
+        </div>
+        <div class="form-group">
+          <label>Sexo</label>
+          <select class="form-control" (change)="genderChange($event)">
+            <option *ngFor="let gender of genders" [value]="gender.value" >{{ gender.label }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Estado</label>
+          <select class="form-control" (change)="stateChange($event)">
+              <option *ngFor="let state of states">{{ state }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+            <label>Estado Civil</label>
+            <select class="form-control" (change)="maritalStatusChange($event)">
+                <option *ngFor="let status of maritalStatus" [value]="status.value" >{{ status.label }}</option>
+            </select>
+          </div>
+        <div class="form-group">
+          <label>Dependentes</label>
+          <input (input)="dependentsHandler($event)" type="number" class="form-control" placeholder="Dependentes">
+        </div>
+        <div class="form-group">
+          <label>Renda</label>
+          <input (input)="incomeHandler($event)" type="currency" class="form-control" placeholder="Renda">
+        </div>
+      </form>
+      <div class="row col-md-12 submit-button">
+          <div>
+              <button (click)="submit()" class="btn btn-primary btn-md text-center">Pesquisar</button>
+          </div>
+      </div>
+      <div *ngIf="responseError.length > 0" class="row col-md-12 submit-button">
+          <div class="text-danger">
+              {{ responseError }}
+          </div>
+       </div>
+    </div>      
+  </div>
